@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Study · Vocabulary Flashcards</title>
+  <style>
+    body { font-family: system-ui, sans-serif; max-width: 560px; margin: 3rem auto; padding: 0 1rem; text-align: center; }
+    .counter { color: #999; font-size: 0.85rem; margin-bottom: 1.5rem; }
+    .card { border: 1px solid #ddd; border-radius: 12px; padding: 2.5rem 2rem; margin-bottom: 1.5rem; min-height: 160px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1rem; }
+    .word { font-size: 1.8rem; font-weight: 700; margin: 0; }
+    .definition { font-size: 1rem; color: #444; margin: 0; display: none; }
+    .actions { display: flex; gap: 1rem; justify-content: center; }
+    button, a.btn { padding: 0.6rem 1.4rem; border-radius: 6px; font-size: 1rem; font-weight: 600; cursor: pointer; text-decoration: none; }
+    button { background: #1a2540; color: #fff; border: none; }
+    a.btn { background: #f0f0f0; color: #333; border: 1px solid #ccc; }
+    a.home { display: block; margin-top: 1.5rem; color: #999; font-size: 0.85rem; }
+  </style>
+</head>
+<body>
+  <p class="counter">Card {{ idx + 1 }} of {{ total }}</p>
+
+  <div class="card">
+    <p class="word">{{ card.word }}</p>
+    <p class="definition" id="def">{{ card.definition }}</p>
+  </div>
+
+  <div class="actions">
+    <button onclick="document.getElementById('def').style.display='block'; this.style.display='none';">
+      Reveal
+    </button>
+    <a class="btn" href="{{ url_for('study', idx=next_idx) }}">Next →</a>
+  </div>
+
+  <a class="home" href="{{ url_for('home') }}">← All flashcards</a>
+</body>
+</html>

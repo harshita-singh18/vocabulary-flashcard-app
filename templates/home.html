@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Vocabulary Flashcards</title>
+  <style>
+    body { font-family: system-ui, sans-serif; max-width: 720px; margin: 2rem auto; padding: 0 1rem; }
+    h1 { margin-bottom: 0.25rem; }
+    .meta { color: #666; margin-bottom: 1.5rem; }
+    .card { border: 1px solid #ddd; border-radius: 8px; padding: 1rem; margin-bottom: 0.75rem; }
+    .word { font-size: 1.1rem; font-weight: 700; margin: 0 0 0.4rem; }
+    .definition { margin: 0; color: #333; }
+  </style>
+</head>
+<body>
+  <h1>Vocabulary Flashcards</h1>
+  <p class="meta">{{ flashcards | length }} words</p>
+
+  {% for card in flashcards %}
+    <div class="card">
+      <p class="word">{{ card.word }}</p>
+      <p class="definition">{{ card.definition }}</p>
+    </div>
+  {% endfor %}
+</body>
+</html>
